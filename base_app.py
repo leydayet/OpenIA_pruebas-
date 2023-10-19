@@ -16,7 +16,7 @@ def main():
         page_title="App Básica",
         page_icon="💻"
     )
-    st.header("Asistente Virtual")
+    st.header("Asistente Virtual de ley")
 
     # Initialize chat history
     if "messages" not in st.session_state:
