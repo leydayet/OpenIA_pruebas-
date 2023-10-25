@@ -76,7 +76,7 @@ def get_content(url):
 
 
 def build_prompt(content, n_chars=300):
-    return f"""Aquí está el contenido de una página web. Proporcione un resumen conciso de alrededor de {n_chars} caracteres.
+    return f"""Aquí está el contenido de una página web. Proporcione un resumen conciso de alrededor de {n_chars} caracteres en español.
 
 ========
 

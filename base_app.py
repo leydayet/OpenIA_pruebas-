@@ -1,6 +1,6 @@
 import os
 import streamlit as st
-
+import openai
 from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
@@ -12,11 +12,16 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 def main():
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY, temperature=0)
 
+
     st.set_page_config(
-        page_title="App Básica",
-        page_icon="💻"
+        page_title="Asistente Virtual de Ley",
+        page_icon="🏛️",
+        layout="centered",
+        initial_sidebar_state="auto"
     )
-    st.header("Asistente Virtual de ley")
+    st.title("Asistente Virtual de Ley")
+
+
 
     # Initialize chat history
     if "messages" not in st.session_state:
@@ -34,9 +39,10 @@ def main():
     # Chat history
     messages = st.session_state.get('messages', [])
     for message in messages:
+
         if isinstance(message, AIMessage):
-            with st.chat_message('assistant', avatar="🖥️"):
-                st.markdown(message.content)
+            with st.chat_message('assistant', avatar="🤖"):
+                 st.markdown(message.content)
         elif isinstance(message, HumanMessage):
             with st.chat_message('user', avatar="👤"):
                 st.markdown(message.content)
